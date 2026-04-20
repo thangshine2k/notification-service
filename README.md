@@ -26,6 +26,26 @@ A scalable backend system built with Node.js that demonstrates modern backend ar
   * `Promise.allSettled` (parallel processing)
   * Timeout handling
   * In-memory caching (TTL 30s)
+  * 
+### 📥 Request Body
+
+{
+  "user_id": "string",
+  "items": [
+    {
+      "product_id": "string",
+      "quantity": 1,
+      "price": 100
+    }
+  ],
+  "note": "string (optional)"
+}
+
+### 📌 Notes
+user_id: ID của user tạo order
+items: danh sách sản phẩm (không được rỗng)
+quantity > 0, price >= 0
+note là optional
 
 ---
 
