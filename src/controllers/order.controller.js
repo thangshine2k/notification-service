@@ -18,16 +18,10 @@ export const createOrderHandler = async (req, res, next) => {
     const order = createOrder(value);
 
     addJob({
-      email: "thangthontien2k@gmail.com",
+      email: "thangshine2k@gmail.com",
       message: "Your order created",
     });
 
-    // for (let i = 0; i < 1000; i++) {
-    //   addJob({
-    //     email: "thangthontien2k@mail.com",
-    //     message: `Order ${i}`,
-    //   });
-    // }
     return res.status(201).json({
       message: "Order created successfully",
       data: order,

@@ -76,10 +76,11 @@ System sẽ push job vào queue:
 * Worker sẽ xử lý queue và gửi email qua Nodemailer
 #### 📡 Email Service
 <pre> sendEmail(to, message); </pre>
-Uses Gmail SMTP via Nodemailer
-Requires environment variables:
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_app_password
+
+* Uses Gmail SMTP via Nodemailer
+* Requires environment variables:
+<pre> EMAIL_USER=your_email@gmail.com </pre>
+<pre> EMAIL_PASS=your_app_password </pre>
 
 📬 Email Payload
 <pre> {

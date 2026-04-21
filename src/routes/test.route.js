@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/load", (req, res) => {
   for (let i = 0; i < 1000; i++) {
     addJob({
-      email: "test@mail.com",
+      email: "thangshine2k@mail.com",
       message: `Order ${i}`,
     });
   }
