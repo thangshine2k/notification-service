@@ -8,6 +8,7 @@ export const createOrderSchema = Joi.object({
       Joi.object({
         product_id: Joi.string().required(),
         quantity: Joi.number().integer().min(1).required(),
+        price: Joi.number().integer().min(1).required(),
       })
     )
     .min(1)
