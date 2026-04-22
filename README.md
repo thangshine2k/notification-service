@@ -29,7 +29,6 @@ npm run dev
     {
       "product_id": "string",
       "quantity": 1,
-      "price": 100
     }
   ],
   "note": "string (optional)"
@@ -97,7 +96,6 @@ System sẽ push job vào queue:
     {
       "product_id": "prod_1",
       "quantity": 1,
-      "price": 100
     }
   ]
 }
