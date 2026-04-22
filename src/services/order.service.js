@@ -1,16 +1,17 @@
-import { orders } from "../db/mock.db.js";
-import { v4 as uuidv4 } from "uuid";
+import { pool } from "../config/db.js";
 
-export const createOrder = (data) => {
-  const newOrder = {
-    id: uuidv4(),
-    user_id: data.user_id,
-    items: data.items,
-    note: data.note || "",
-    created_at: new Date(),
-  };
+export const createOrder = async (data) => {
+  const { user_id, items, note } = data;
 
-  orders.push(newOrder);
+  const query = `
+    INSERT INTO orders (user_id, items, note)
+    VALUES ($1, $2, $3)
+    RETURNING *
+  `;
 
-  return newOrder;
+  const values = [user_id, JSON.stringify(items), note || ""];
+
+  const result = await pool.query(query, values);
+
+  return result.rows[0];
 };

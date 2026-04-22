@@ -1,5 +1,6 @@
 import { users } from "../db/user.db.js";
 import pLimit from "p-limit";
+import { getUsers } from "./user.service.js";
 
 const limit = pLimit(10);
 const cache = new Map();
@@ -59,8 +60,11 @@ const fetchWithCache = async (url, userId) => {
 export const getReport = async () => {
   const baseUrl = "http://localhost:3000/mock/external";
 
+  // 🔥 lấy users từ DB
+  const users = await getUsers();
+
   const promises = users.map((user) =>
-    limit(() => fetchWithCache(`${baseUrl}/${user.id}`, user.id)),
+    limit(() => fetchWithCache(`${baseUrl}/${user.id}`, user.id))
   );
 
   const results = await Promise.allSettled(promises);

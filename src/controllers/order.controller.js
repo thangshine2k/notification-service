@@ -15,7 +15,7 @@ export const createOrderHandler = async (req, res, next) => {
     }
 
     // call service
-    const order = createOrder(value);
+    const order = await createOrder(value);
 
     addJob({
       email: "thangshine2k@gmail.com",
